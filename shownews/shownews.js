@@ -1,10 +1,6 @@
-/** 
- * @require shownews.tmpl.js
- */
 $(function(){
     $.getJSON("shownews/shownews.json",function(data){
-        nunjucks.render("shownews/shownews.tmpl",data,function(err,res){
-            $("#wrapper").append(res);
-        })
+        var template = __inline('shownews.tmpl');
+        $("#wrapper").append(template(data));
     });
 });
